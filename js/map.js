@@ -648,6 +648,10 @@ console.log(position);
             let marker = new google.maps.Marker({
                 position: position,
                 map: map,
+                icon: {
+                  url: "http://localhost/hatman/wp-content/uploads/2024/12/create-a-45x45-pixel-square-having-only-three-colo-2.png", // Replace with your image or icon URL
+                  scaledSize: new google.maps.Size(30, 30), // Default size
+                },
             });
 
             let infowindow = new google.maps.InfoWindow({
