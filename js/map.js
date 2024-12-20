@@ -2,144 +2,141 @@ let map;
 
 // initMap is now async
 async function initMap() {
-    // Request libraries when needed, not in the script tag.
-    const { Map } = await google.maps.importLibrary("maps");
-    // Short namespaces can be used.
-    map = new Map(document.getElementById("map-container"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-        "featureType": "landscape.natural.terrain",
-        "elementType": "geometry",
-        styles: [
+  // Request libraries when needed, not in the script tag.
+  const { Map } = await google.maps.importLibrary("maps");
+  // Short namespaces can be used.
+  map = new Map(document.getElementById("map-container"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+    featureType: "landscape.natural.terrain",
+    elementType: "geometry",
+    styles: [
+      {
+        featureType: "administrative",
+        elementType: "geometry.stroke",
+        stylers: [
           {
-            "featureType": "administrative",
-            "elementType": "geometry.stroke",
-            "stylers": [
-              {
-                "color": "#eea791"
-              },
-              {
-                "weight": 1
-              }
-            ]
+            color: "#eea791"
           },
           {
-            "featureType": "administrative",
-            "elementType": "labels",
-            "stylers": [
-              {
-                "color": "#644540"
-              }
-            ]
-          },
-          {
-            "featureType": "administrative",
-            "elementType": "labels.text.stroke",
-            "stylers": [
-              {
-                "visibility": "off"
-              }
-            ]
-          },
-          {
-            "featureType": "landscape",
-            "elementType": "geometry.fill",
-            "stylers": [
-              {
-                "color": "#feedc2"
-              }
-            ]
-          },
-          {
-            "featureType": "poi",
-            "elementType": "labels.text.fill",
-            "stylers": [
-              {
-                "color": "#251a1a"
-              }
-            ]
-          },
-          {
-            "featureType": "poi.business",
-            "elementType": "geometry",
-            "stylers": [
-              {
-                "color": "#f0b19f"
-              }
-            ]
-          },
-          {
-            "featureType": "poi.medical",
-            "elementType": "geometry.fill",
-            "stylers": [
-              {
-                "color": "#c9bc9c"
-              }
-            ]
-          },
-          {
-            "featureType": "poi.park",
-            "elementType": "geometry.fill",
-            "stylers": [
-              {
-                "color": "#c2cda2"
-              }
-            ]
-          },
-          {
-            "featureType": "road.arterial",
-            "elementType": "geometry.fill",
-            "stylers": [
-              {
-                "color": "#bb9e72"
-              }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "geometry.fill",
-            "stylers": [
-              {
-                "color": "#e7c387"
-              }
-            ]
-          },
-          {
-            "featureType": "road.local",
-            "elementType": "geometry.fill",
-            "stylers": [
-              {
-                "color": "#e9c996"
-              }
-            ]
-          },
-          {
-            "featureType": "water",
-            "elementType": "geometry.fill",
-            "stylers": [
-              {
-                "color": "#9bb1a4"
-              }
-            ]
-          },
-          {
-            "featureType": "water",
-            "elementType": "labels.text",
-            "stylers": [
-              {
-                "color": "#597465"
-              }
-            ]
+            weight: 1
           }
         ]
-            
-      
-    });
+      },
+      {
+        featureType: "administrative",
+        elementType: "labels",
+        stylers: [
+          {
+            color: "#644540"
+          }
+        ]
+      },
+      {
+        featureType: "administrative",
+        elementType: "labels.text.stroke",
+        stylers: [
+          {
+            visibility: "off"
+          }
+        ]
+      },
+      {
+        featureType: "landscape",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#feedc2"
+          }
+        ]
+      },
+      {
+        featureType: "poi",
+        elementType: "labels.text.fill",
+        stylers: [
+          {
+            color: "#251a1a"
+          }
+        ]
+      },
+      {
+        featureType: "poi.business",
+        elementType: "geometry",
+        stylers: [
+          {
+            color: "#f0b19f"
+          }
+        ]
+      },
+      {
+        featureType: "poi.medical",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#c9bc9c"
+          }
+        ]
+      },
+      {
+        featureType: "poi.park",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#c2cda2"
+          }
+        ]
+      },
+      {
+        featureType: "road.arterial",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#bb9e72"
+          }
+        ]
+      },
+      {
+        featureType: "road.highway",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#e7c387"
+          }
+        ]
+      },
+      {
+        featureType: "road.local",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#e9c996"
+          }
+        ]
+      },
+      {
+        featureType: "water",
+        elementType: "geometry.fill",
+        stylers: [
+          {
+            color: "#9bb1a4"
+          }
+        ]
+      },
+      {
+        featureType: "water",
+        elementType: "labels.text",
+        stylers: [
+          {
+            color: "#597465"
+          }
+        ]
+      }
+    ]
+  });
 
-    // Fetch data and add markers
-    fetchBusinessData();
+  // Fetch data and add markers
+  fetchBusinessData();
 }
-
 
 // styles: [
 //   {
@@ -627,56 +624,91 @@ async function initMap() {
 //           }
 //         ]
 function generateInfoWindowContent() {
-    return `
-        <h3>info</h3>
+  return `
+        <div style="
+            font-family: 'Courier New', Courier, monospace; 
+            color: #5a4d41; /* Muted brown for text */
+            background-color: #f4ecd8; /* Light beige for vintage look */
+            padding: 15px; 
+            border: 3px solid #8b4513; /* Dark brown border */
+            border-radius: 8px; 
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+        ">
+            <h3 style="
+                margin: 0; 
+                padding-bottom: 10px; 
+                text-align: center; 
+                border-bottom: 2px solid #8b4513; 
+                color: #4b3925; /* Darker brown for the heading */
+            ">
+                Info
+            </h3>
+            <p style="margin-top: 10px;">
+                This is your customized vintage-style information window.
+            </p>
+        </div>
     `;
 }
 
 function fetchBusinessData() {
-    businessData = [
-{
-    lat: -28.22443106341595,
-    lng: 150.5220951367859
-},
-{
-    lat: -31.050465236523,
-    lng: 144.36975131759036
+  businessData = [
+    {
+      lat: -28.22443106341595,
+      lng: 150.5220951367859
+    },
+    {
+      lat: -31.050465236523,
+      lng: 144.36975131759036
+    }
+  ];
+  businessData.forEach((position) => {
+    console.log(position);
+    let marker = new google.maps.Marker({
+      position: position,
+      map: map,
+      icon: {
+        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1.png", // Replace with your image or icon URL
+        scaledSize: new google.maps.Size(30, 30) // Default size
+      }
+    });
+
+    let infowindow = new google.maps.InfoWindow({
+      content: generateInfoWindowContent()
+    });
+
+    marker.addListener("click", () => {
+      infowindow.open(map, marker);
+    });
+
+    // Enlarge marker on hover
+    
+
+    marker.addListener('mouseover', () => {
+      marker.setIcon({
+          url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1.png", // Same icon
+          scaledSize: new google.maps.Size(30, 30),
+      });
+      marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1); // Bring to front
+  });
+  marker.addListener('mouseout', () => {
+      marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1); // Reset z-index
+  });
+  
+
+    map.addListener("click", () => {
+      infowindow.close();
+    });
+  });
 }
-    ];
-        businessData.forEach(position => {
-console.log(position);
-            let marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                icon: {
-                  url: "http://localhost/hatman/wp-content/uploads/2024/12/create-a-45x45-pixel-square-having-only-three-colo-2.png", // Replace with your image or icon URL
-                  scaledSize: new google.maps.Size(30, 30), // Default size
-                },
-            });
 
-            let infowindow = new google.maps.InfoWindow({
-                content: generateInfoWindowContent()
-            });
-
-            marker.addListener('click', () => {
-                infowindow.open(map, marker);
-            });
-
-            map.addListener('click', () => {
-                infowindow.close();
-            });
-        });
-
-    } 
-
-
-
-{/* <div>
+{
+  /* <div>
             <h3>${business.name}</h3>
             <p>Email: ${business.email}</p>
             <p>Phone: ${business.phone}</p>
             <a href="${business.business_url}" target="_blank" style="display: inline-block; margin-top: 10px; padding: 5px 10px; background-color: #4285f4; color: white; text-decoration: none; font-size: 14px; text-align: center; border: none; cursor: pointer;">Visit Website</a>
-        </div> */}
+        </div> */
+}
 
 // Initialize the map on window load
 window.onload = initMap;
