@@ -6,7 +6,7 @@ async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
   // Short namespaces can be used.
   map = new Map(document.getElementById("map-container"), {
-    center: { lat: -34.397, lng: 150.644 },
+    center: { lat: 28.086781258166162, lng: -97.04455600476585 },
     zoom: 8,
     featureType: "landscape.natural.terrain",
     elementType: "geometry",
@@ -659,6 +659,117 @@ function generateInfoWindowContent() {
 let currentlyOpenInfoBubble = null; // Keep track of the open InfoBubble
 
 function fetchBusinessData() {
+
+  fetch(mapData.jsonUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Failed to load JSON");
+      }
+      return response.json();
+    })
+    .then(data=>{
+      data.forEach((position) => {
+        console.log(position);
+        let coords = position.coords;
+        let locName = position.locationName;
+        let street = position.streetAddress;
+        let city = position.City;
+        let state = position.State;
+        let zipCode = position.zipCode;
+        let phone = position.Phone;
+    
+        let marker = new google.maps.Marker({
+            position: coords,
+            map: map,
+            icon: {
+                url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Replace with your image or icon URL
+                scaledSize: new google.maps.Size(30, 30) // Default size
+            }
+        });
+    
+        const infoBubble = new InfoBubble({
+            map: map,
+            content: `
+                <div style="
+                    font-family: 'Georgia', serif;
+                    font-size: 14px;
+                    color: #5c4033; 
+                    background-color: #f5e7c5; 
+                    padding: 10px; 
+                    max-width: 200px; 
+                    text-align: left;
+                ">
+                    <strong style="font-size: 16px;">${locName}</strong><br>
+                    <div style="margin-top: 5px; display: flex; align-items: flex-start;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Address Icon" style="width: 14px; height: 14px; margin-right: 8px;">
+                        <span>${street}, ${city}, ${state} ${zipCode}</span>
+                    </div>
+                    <div style="margin-top: 5px; display: flex; align-items: flex-start;">
+                        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon" style="width: 14px; height: 14px; margin-right: 8px;">
+                        <span>${phone}</span>
+                    </div>
+                </div>
+            `,
+            position: marker.getPosition(),
+            shadowStyle: 1,
+            padding: 0,
+            backgroundColor: '#f5e7c5',
+            borderRadius: 8,
+            arrowSize: 10,
+            borderWidth: 2,
+            borderColor: '#5c4033',
+            maxWidth: 200,
+            disableAutoPan: false,
+            hideCloseButton: false,
+            arrowPosition: 50,
+            arrowStyle: 2
+        });
+    
+        // Open the InfoBubble when the marker is clicked
+        marker.addListener("click", () => {
+            // Close the currently open InfoBubble, if any
+            if (currentlyOpenInfoBubble && currentlyOpenInfoBubble !== infoBubble) {
+                currentlyOpenInfoBubble.close();
+            }
+    
+            // Open the new InfoBubble and set it as the currently open one
+            if (!infoBubble.isOpen()) {
+                infoBubble.open(map, marker);
+                currentlyOpenInfoBubble = infoBubble;
+            } else {
+                infoBubble.close();
+                currentlyOpenInfoBubble = null;
+            }
+        });
+    
+        // Enlarge marker on hover
+        marker.addListener("mouseover", () => {
+            marker.setIcon({
+                url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Same icon
+                scaledSize: new google.maps.Size(35, 35), // Enlarged size
+            });
+            marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1); // Bring to front
+        });
+    
+        // Restore marker size on mouseout
+        marker.addListener("mouseout", () => {
+            marker.setIcon({
+                url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Original icon
+                scaledSize: new google.maps.Size(30, 30), // Original size
+            });
+            marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1); // Reset z-index
+        });
+    
+        // Close InfoBubble when clicking on the map (optional)
+        map.addListener("click", () => {
+            if (infoBubble.isOpen()) {
+                infoBubble.close();
+                currentlyOpenInfoBubble = null;
+            }
+        });
+    });
+    
+    })
   businessData = [
     {
       lat: -28.22443106341595,
@@ -670,92 +781,7 @@ function fetchBusinessData() {
     }
   ];
 
-  businessData.forEach((position) => {
-    console.log(position);
-
-    let marker = new google.maps.Marker({
-      position: position,
-      map: map,
-      icon: {
-        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Replace with your image or icon URL
-        scaledSize: new google.maps.Size(30, 30) // Default size
-      }
-    });
-
-    const infoBubble = new InfoBubble({
-      map: map,
-      content: `
-          <div style="
-              font-family: 'Georgia', serif;
-              font-size: 14px;
-              color: #5c4033; 
-              background-color: #f5e7c5; 
-              padding: 10px; 
-              max-width: 200px; 
-              text-align: center;
-          ">
-              <strong>San Francisco</strong><br>
-              A beautiful city with a rich history and iconic landmarks.
-          </div>
-      `,
-      position: marker.getPosition(),
-      shadowStyle: 1,
-      padding: 0,
-      backgroundColor: '#f5e7c5',
-      borderRadius: 8,
-      arrowSize: 10,
-      borderWidth: 2,
-      borderColor: '#5c4033',
-      maxWidth: 200,
-      disableAutoPan: false,
-      hideCloseButton: false,
-      arrowPosition: 50,
-      arrowStyle: 2
-    });
-
-    // Open the InfoBubble when the marker is clicked
-    marker.addListener("click", () => {
-      // Close the currently open InfoBubble, if any
-      if (currentlyOpenInfoBubble && currentlyOpenInfoBubble !== infoBubble) {
-        currentlyOpenInfoBubble.close();
-      }
-
-      // Open the new InfoBubble and set it as the currently open one
-      if (!infoBubble.isOpen()) {
-        infoBubble.open(map, marker);
-        currentlyOpenInfoBubble = infoBubble;
-      } else {
-        infoBubble.close();
-        currentlyOpenInfoBubble = null;
-      }
-    });
-
-    // Enlarge marker on hover
-    marker.addListener("mouseover", () => {
-      marker.setIcon({
-        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Same icon
-        scaledSize: new google.maps.Size(35, 35), // Enlarged size
-      });
-      marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1); // Bring to front
-    });
-
-    // Restore marker size on mouseout
-    marker.addListener("mouseout", () => {
-      marker.setIcon({
-        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Original icon
-        scaledSize: new google.maps.Size(30, 30), // Original size
-      });
-      marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1); // Reset z-index
-    });
-
-    // Close InfoBubble when clicking on the map (optional)
-    map.addListener("click", () => {
-      if (infoBubble.isOpen()) {
-        infoBubble.close();
-        currentlyOpenInfoBubble = null;
-      }
-    });
-  });
+  
 }
 
 
