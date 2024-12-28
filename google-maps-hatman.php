@@ -9,18 +9,28 @@
  * License: GPL2
  */
 
- function my_plugin_enqueue_scripts()
+function my_plugin_enqueue_scripts()
 {
+    // Enqueue CSS
     wp_enqueue_style('style-name', plugin_dir_url(__FILE__) . 'css/style.css');
-    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCuAF3H2yNyUerttUNx1OyoT9XBrVS_O9s&loading=async', array(), null, true);
-    wp_enqueue_script('my-js', plugin_dir_url(__FILE__) . 'js/map.js', array('google-maps'), null, true);
+
+    // Enqueue Google Maps script
+    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCuAF3H2yNyUerttUNx1OyoT9XBrVS_O9s', array(), null, true);
+
+    // Enqueue InfoBubble library
+    wp_enqueue_script('infobubble', 'https://cdn.jsdelivr.net/gh/googlemaps/v3-utility-library/infobubble/src/infobubble.js', array('google-maps'), null, true);
+
+    // Enqueue your custom JS script and set dependencies
+    wp_enqueue_script('my-js', plugin_dir_url(__FILE__) . 'js/map.js', array('google-maps', 'infobubble'), null, true);
+
     // Localize the script with data
     $data = array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce'    => wp_create_nonce('your-plugin-nonce'),
     );
-    wp_localize_script('my-js', 'plugin_data', $data); 
+    wp_localize_script('my-js', 'plugin_data', $data);
 }
+
 
 // Function to display the map container
 function my_plugin_map_shortcode()

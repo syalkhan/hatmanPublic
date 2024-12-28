@@ -630,25 +630,31 @@ function generateInfoWindowContent() {
             color: #5a4d41; /* Muted brown for text */
             background-color: #f4ecd8; /* Light beige for vintage look */
             padding: 15px; 
-            border: 3px solid #8b4513; /* Dark brown border */
+            border: none; /* Removed outer border */
             border-radius: 8px; 
             box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png'); /* Adds a textured, vintage paper look */
+            background-size: cover; /* Ensure background covers the entire div */
         ">
             <h3 style="
                 margin: 0; 
                 padding-bottom: 10px; 
                 text-align: center; 
-                border-bottom: 2px solid #8b4513; 
+                font-weight: bold; 
                 color: #4b3925; /* Darker brown for the heading */
             ">
                 Info
             </h3>
-            <p style="margin-top: 10px;">
+            <p style="
+                margin-top: 10px;
+                text-indent: 20px; /* Slight indentation for vintage feel */
+            ">
                 This is your customized vintage-style information window.
             </p>
         </div>
     `;
 }
+
 
 function fetchBusinessData() {
   businessData = [
@@ -667,7 +673,7 @@ function fetchBusinessData() {
       position: position,
       map: map,
       icon: {
-        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1.png", // Replace with your image or icon URL
+        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Replace with your image or icon URL
         scaledSize: new google.maps.Size(30, 30) // Default size
       }
     });
@@ -676,9 +682,49 @@ function fetchBusinessData() {
       content: generateInfoWindowContent()
     });
 
-    marker.addListener("click", () => {
-      infowindow.open(map, marker);
-    });
+    const infoBubble = new InfoBubble({
+      map: map,
+      content: `
+          <div style="
+              font-family: 'Georgia', serif;
+              font-size: 14px;
+              color: #5c4033; 
+              background-color: #f5e7c5; 
+              padding: 10px; 
+              max-width: 200px; 
+              text-align: center;
+          ">
+              <strong>San Francisco</strong><br>
+              A beautiful city with a rich history and iconic landmarks.
+          </div>
+      `,
+      position: marker.getPosition(),
+      shadowStyle: 1,
+      padding: 0,
+      backgroundColor: '#f5e7c5', // Vintage background
+      borderRadius: 8, // Rounded corners
+      arrowSize: 10, // Smaller arrow
+      borderWidth: 2, // Border width
+      borderColor: '#5c4033', // Dark vintage border
+      maxWidth: 200, // Limit width to make it smaller
+      disableAutoPan: false,
+      hideCloseButton: false,
+      arrowPosition: 50, // Arrow centered on the marker
+      arrowStyle: 2, // Subtle arrow style
+  });
+  
+  // Open the InfoBubble when the marker is clicked
+  marker.addListener("click", () => {
+      if (!infoBubble.isOpen()) {
+          infoBubble.open(map, marker);
+      } else {
+          infoBubble.close();
+      }
+  });
+  
+    // marker.addListener("click", () => {
+    //   infowindow.open(map, marker);
+    // });
 
     // Enlarge marker on hover
     
