@@ -1,0 +1,164 @@
+[
+    {
+        "locationName":"Aransas County Airport",
+        "streetAddress":"421 John D Wendell Rd",
+        "City":"Rockport",
+        "State":"TX",
+        "zipCode":78382,
+        "Phone":"361-790-0141",
+        "coords":{"lat":28.086781258166162, "lng":-97.04455600476585}
+    },
+    {
+        "locationName":"Cuero History Museum",
+        "streetAddress":"124 E. Church St",
+        "City":"Cuero",
+        "State":"TX",
+        "zipCode":77954,
+        "Phone":"361-485-8090",
+        "coords":{"lat":29.09122145010552, "lng": -97.28994669799017}
+    },
+    {
+        "locationName":"Fulton Mansion State Historic Site",
+        "streetAddress":"317 S. Fulton Beach Rd.",
+        "City":"Rockport",
+        "State":"TX",
+        "zipCode":78382,
+        "Phone":"361-729-0386",
+        "coords":{"lat": 28.05736908371781, "lng": -97.03561003360329}
+    },
+    {
+        "locationName":"Fulton Schoolhouse Museum",
+        "streetAddress":"205 N. 7th Street",
+        "City":"Fulton",
+        "State":"TX",
+        "zipCode":78358,
+        "Phone":"361-729-5533",
+        "coords":{"lat": 28.063238025701235, "lng": -97.04050708942215}
+    },
+    {
+        "locationName":"Goliad Chamber & Visitors Center",
+        "streetAddress":"339 S. Jefferson St",
+        "City":"Goliad",
+        "State":"TX",
+        "zipCode":77963,
+        "Phone":"361-645-3563",
+        "coords":{"lat": 29.591949206046397, "lng": -95.76910208691322}
+    },
+    {
+        "locationName":"Gonzalez Chamber of Commerce",
+        "streetAddress":"304 Saint Louis Street",
+        "City":"Gonzalez",
+        "State":"TX",
+        "zipCode":78629,
+        "Phone":"830-672-6532",
+        "coords":{"lat": 29.49982561313081, "lng": -97.45322150470808}
+    },
+    {
+        "locationName":"Historic Brownsville Museum",
+        "streetAddress":"641 E. Madison St",
+        "City":"Brownsville",
+        "State":"TX",
+        "zipCode":78520,
+        "Phone":"956-548-1313",
+        "coords":{"lat": 25.9074649436253, "lng": -97.49925255830054}
+    },
+    {
+        "locationName":"History Center for Aransas County",
+        "streetAddress":"801 Cedar",
+        "City":"Rockport",
+        "State":"TX",
+        "zipCode":78382,
+        "Phone":"361-727-9214",
+        "coords":{"lat": 28.03153387710293, "lng": -97.05336391336711}
+    },
+    {
+        "locationName":"Luther Hotel",
+        "streetAddress":"408 South Bay Blvd",
+        "City":"Palacios",
+        "State":"TX",
+        "zipCode":77465,
+        "Phone":null,
+        "coords":{"lat": 28.699535169984987, "lng": -96.21597402253214}
+    },
+    {
+        "locationName":"Palacios Preservation Association",
+        "streetAddress":" 454a Main Street",
+        "City":"Palacios",
+        "State":"TX",
+        "zipCode":77465,
+        "Phone":null,
+        "coords":{"lat": 28.701567945052343, "lng": -96.21649394474213}
+    },
+    {
+        "locationName":"Palacios Chamber of Commerce",
+        "streetAddress":"420 Main Street",
+        "City":"Palacios",
+        "State":"TX",
+        "zipCode":77465,
+        "Phone":"361-972-2615",
+        "coords":{"lat": 28.70160596301525, "lng": -96.21580124584565}
+    },
+    {
+        "locationName":"Port Isabel Lighthouse",
+        "streetAddress":"421 E. Queen Isabella Blvd.",
+        "City":"Port Isabel",
+        "State":"TX",
+        "zipCode":78578,
+        "Phone":"956-943-0735",
+        "coords":{"lat": 26.077787798906744, "lng": -97.20757375760444}
+    },
+    {
+        "locationName":"Refugio History Museum",
+        "streetAddress":"102 W. West Street",
+        "City":"Refugio",
+        "State":"TX",
+        "zipCode":78377,
+        "Phone":"361-526-5555",
+        "coords":{"lat": 28.3085315725052, "lng": -97.27537229248874}
+    },
+    {
+        "locationName":"Rockport Cultural Arts District and \"Cultural Interface\" Public Art",
+        "streetAddress":"Hwy 35N and East Laurel Street",
+        "City":"Rockport",
+        "State":"TX",
+        "zipCode":78382,
+        "Phone":null,
+        "coords":{"lat": 28.02271895988728, "lng": -97.05056170476846}
+    },
+    {
+        "locationName":"Rockport Little Theatre",
+        "streetAddress":"99 N. Austin Street",
+        "City":"Rockport",
+        "State":"TX",
+        "zipCode":78382,
+        "Phone":"361-450-1465",
+        "coords":{"lat": 28.023867548656128, "lng": -97.05094679153025}
+    },
+    {
+        "locationName":"Rockport Railroad Museum",
+        "streetAddress":"105 S. Magnolia Street",
+        "City":"Rockport",
+        "State":"TX",
+        "zipCode":78382,
+        "Phone":"214-395-7156",
+        "coords":{"lat": 28.023655003158964, "lng": -97.05215446941902}
+    },
+    {
+        "locationName":"Taft Blackland Museum",
+        "streetAddress":"301 Green Avenue",
+        "City":"Taft",
+        "State":"TX",
+        "zipCode":78390,
+        "Phone":"361-528-2206",
+        "coords":{"lat": 27.979654015165234, "lng": -97.39448885262047}
+    },
+    {
+        "locationName":"Texas Maritime Museum",
+        "streetAddress":"1202 Navigation Circle",
+        "City":"Rockport",
+        "State":"TX",
+        "zipCode":78382,
+        "Phone":"361-729-1271",
+        "coords":{"lat": 28.02629415586971, "lng": -97.04876064035025}
+    }
+]
