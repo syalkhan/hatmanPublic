@@ -656,6 +656,8 @@ function generateInfoWindowContent() {
 }
 
 
+let currentlyOpenInfoBubble = null; // Keep track of the open InfoBubble
+
 function fetchBusinessData() {
   businessData = [
     {
@@ -667,8 +669,10 @@ function fetchBusinessData() {
       lng: 144.36975131759036
     }
   ];
+
   businessData.forEach((position) => {
     console.log(position);
+
     let marker = new google.maps.Marker({
       position: position,
       map: map,
@@ -676,10 +680,6 @@ function fetchBusinessData() {
         url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Replace with your image or icon URL
         scaledSize: new google.maps.Size(30, 30) // Default size
       }
-    });
-
-    let infowindow = new google.maps.InfoWindow({
-      content: generateInfoWindowContent()
     });
 
     const infoBubble = new InfoBubble({
@@ -701,51 +701,63 @@ function fetchBusinessData() {
       position: marker.getPosition(),
       shadowStyle: 1,
       padding: 0,
-      backgroundColor: '#f5e7c5', // Vintage background
-      borderRadius: 8, // Rounded corners
-      arrowSize: 10, // Smaller arrow
-      borderWidth: 2, // Border width
-      borderColor: '#5c4033', // Dark vintage border
-      maxWidth: 200, // Limit width to make it smaller
+      backgroundColor: '#f5e7c5',
+      borderRadius: 8,
+      arrowSize: 10,
+      borderWidth: 2,
+      borderColor: '#5c4033',
+      maxWidth: 200,
       disableAutoPan: false,
       hideCloseButton: false,
-      arrowPosition: 50, // Arrow centered on the marker
-      arrowStyle: 2, // Subtle arrow style
-  });
-  
-  // Open the InfoBubble when the marker is clicked
-  marker.addListener("click", () => {
-      if (!infoBubble.isOpen()) {
-          infoBubble.open(map, marker);
-      } else {
-          infoBubble.close();
+      arrowPosition: 50,
+      arrowStyle: 2
+    });
+
+    // Open the InfoBubble when the marker is clicked
+    marker.addListener("click", () => {
+      // Close the currently open InfoBubble, if any
+      if (currentlyOpenInfoBubble && currentlyOpenInfoBubble !== infoBubble) {
+        currentlyOpenInfoBubble.close();
       }
-  });
-  
-    // marker.addListener("click", () => {
-    //   infowindow.open(map, marker);
-    // });
+
+      // Open the new InfoBubble and set it as the currently open one
+      if (!infoBubble.isOpen()) {
+        infoBubble.open(map, marker);
+        currentlyOpenInfoBubble = infoBubble;
+      } else {
+        infoBubble.close();
+        currentlyOpenInfoBubble = null;
+      }
+    });
 
     // Enlarge marker on hover
-    
-
-    marker.addListener('mouseover', () => {
+    marker.addListener("mouseover", () => {
       marker.setIcon({
-          url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1.png", // Same icon
-          scaledSize: new google.maps.Size(30, 30),
+        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Same icon
+        scaledSize: new google.maps.Size(35, 35), // Enlarged size
       });
       marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1); // Bring to front
-  });
-  marker.addListener('mouseout', () => {
-      marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1); // Reset z-index
-  });
-  
+    });
 
+    // Restore marker size on mouseout
+    marker.addListener("mouseout", () => {
+      marker.setIcon({
+        url: "http://localhost/hatman/wp-content/uploads/2024/12/Component-1-1.png", // Original icon
+        scaledSize: new google.maps.Size(30, 30), // Original size
+      });
+      marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1); // Reset z-index
+    });
+
+    // Close InfoBubble when clicking on the map (optional)
     map.addListener("click", () => {
-      infowindow.close();
+      if (infoBubble.isOpen()) {
+        infoBubble.close();
+        currentlyOpenInfoBubble = null;
+      }
     });
   });
 }
+
 
 {
   /* <div>
