@@ -76,5 +76,6 @@ function enqueueStyle()
 
 
 add_action('wp_enqueue_scripts', 'enqueueStyle');
-// Register the shortcode
 add_shortcode('google_map', 'my_plugin_map_shortcode');
+
+// Register the shortcode

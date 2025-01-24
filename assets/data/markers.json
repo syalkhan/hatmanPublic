@@ -6,7 +6,8 @@
         "State":"TX",
         "zipCode":78382,
         "Phone":"361-790-0141",
-        "coords":{"lat":28.086781258166162, "lng":-97.04455600476585}
+        "coords":{"lat":28.086781258166162, "lng":-97.04455600476585},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Cuero History Museum",
@@ -15,7 +16,9 @@
         "State":"TX",
         "zipCode":77954,
         "Phone":"361-485-8090",
-        "coords":{"lat":29.09122145010552, "lng": -97.28994669799017}
+        "coords":{"lat":29.09122145010552, "lng": -97.28994669799017},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
+
     },
     {
         "locationName":"Fulton Mansion State Historic Site",
@@ -24,7 +27,8 @@
         "State":"TX",
         "zipCode":78382,
         "Phone":"361-729-0386",
-        "coords":{"lat": 28.05736908371781, "lng": -97.03561003360329}
+        "coords":{"lat": 28.05736908371781, "lng": -97.03561003360329},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Fulton Schoolhouse Museum",
@@ -33,7 +37,8 @@
         "State":"TX",
         "zipCode":78358,
         "Phone":"361-729-5533",
-        "coords":{"lat": 28.063238025701235, "lng": -97.04050708942215}
+        "coords":{"lat": 28.063238025701235, "lng": -97.04050708942215},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Goliad Chamber & Visitors Center",
@@ -42,7 +47,8 @@
         "State":"TX",
         "zipCode":77963,
         "Phone":"361-645-3563",
-        "coords":{"lat": 29.591949206046397, "lng": -95.76910208691322}
+        "coords":{"lat": 28.665091384866887, "lng": -97.3884440225335},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"    
     },
     {
         "locationName":"Gonzalez Chamber of Commerce",
@@ -51,7 +57,8 @@
         "State":"TX",
         "zipCode":78629,
         "Phone":"830-672-6532",
-        "coords":{"lat": 29.49982561313081, "lng": -97.45322150470808}
+        "coords":{"lat": 29.49982561313081, "lng": -97.45322150470808},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Historic Brownsville Museum",
@@ -60,7 +67,8 @@
         "State":"TX",
         "zipCode":78520,
         "Phone":"956-548-1313",
-        "coords":{"lat": 25.9074649436253, "lng": -97.49925255830054}
+        "coords":{"lat": 25.9074649436253, "lng": -97.49925255830054},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"History Center for Aransas County",
@@ -69,7 +77,8 @@
         "State":"TX",
         "zipCode":78382,
         "Phone":"361-727-9214",
-        "coords":{"lat": 28.03153387710293, "lng": -97.05336391336711}
+        "coords":{"lat": 28.03153387710293, "lng": -97.05336391336711},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Luther Hotel",
@@ -78,7 +87,8 @@
         "State":"TX",
         "zipCode":77465,
         "Phone":null,
-        "coords":{"lat": 28.699535169984987, "lng": -96.21597402253214}
+        "coords":{"lat": 28.699535169984987, "lng": -96.21597402253214},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Palacios Preservation Association",
@@ -87,7 +97,8 @@
         "State":"TX",
         "zipCode":77465,
         "Phone":null,
-        "coords":{"lat": 28.701567945052343, "lng": -96.21649394474213}
+        "coords":{"lat": 28.701567945052343, "lng": -96.21649394474213},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Palacios Chamber of Commerce",
@@ -96,7 +107,8 @@
         "State":"TX",
         "zipCode":77465,
         "Phone":"361-972-2615",
-        "coords":{"lat": 28.70160596301525, "lng": -96.21580124584565}
+        "coords":{"lat": 28.70160596301525, "lng": -96.21580124584565},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Port Isabel Lighthouse",
@@ -105,7 +117,8 @@
         "State":"TX",
         "zipCode":78578,
         "Phone":"956-943-0735",
-        "coords":{"lat": 26.077787798906744, "lng": -97.20757375760444}
+        "coords":{"lat": 26.077787798906744, "lng": -97.20757375760444},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Refugio History Museum",
@@ -114,7 +127,8 @@
         "State":"TX",
         "zipCode":78377,
         "Phone":"361-526-5555",
-        "coords":{"lat": 28.3085315725052, "lng": -97.27537229248874}
+        "coords":{"lat": 28.3085315725052, "lng": -97.27537229248874},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Rockport Cultural Arts District and \"Cultural Interface\" Public Art",
@@ -123,7 +137,8 @@
         "State":"TX",
         "zipCode":78382,
         "Phone":null,
-        "coords":{"lat": 28.02271895988728, "lng": -97.05056170476846}
+        "coords":{"lat": 28.02271895988728, "lng": -97.05056170476846},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Rockport Little Theatre",
@@ -132,7 +147,8 @@
         "State":"TX",
         "zipCode":78382,
         "Phone":"361-450-1465",
-        "coords":{"lat": 28.023867548656128, "lng": -97.05094679153025}
+        "coords":{"lat": 28.023867548656128, "lng": -97.05094679153025},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Rockport Railroad Museum",
@@ -141,7 +157,8 @@
         "State":"TX",
         "zipCode":78382,
         "Phone":"214-395-7156",
-        "coords":{"lat": 28.023655003158964, "lng": -97.05215446941902}
+        "coords":{"lat": 28.023655003158964, "lng": -97.05215446941902},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Taft Blackland Museum",
@@ -150,7 +167,8 @@
         "State":"TX",
         "zipCode":78390,
         "Phone":"361-528-2206",
-        "coords":{"lat": 27.979654015165234, "lng": -97.39448885262047}
+        "coords":{"lat": 27.979654015165234, "lng": -97.39448885262047},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
     },
     {
         "locationName":"Texas Maritime Museum",
@@ -159,6 +177,143 @@
         "State":"TX",
         "zipCode":78382,
         "Phone":"361-729-1271",
-        "coords":{"lat": 28.02629415586971, "lng": -97.04876064035025}
+        "coords":{"lat": 28.02629415586971, "lng": -97.04876064035025},
+        "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/Component-1-1.png"
+    },
+
+    
+    
+    
+
+    {
+        "locationName": "Texas Maritime Museum",
+        "streetAddress": "1202 Navigation Circle",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.026315464913964, "lng": -97.04875929924575},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Rockport Harbor (Veteran Memorial Park)",
+        "streetAddress": "320 Veteran's Memorial Dr",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.024951965443734, "lng": -97.0500832711884},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Sea Shell Shoppe",
+        "streetAddress": "120 N North Austin St.",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.024377499331987, "lng": -97.05019879311163},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Rockport Little Theater",
+        "streetAddress": "99 Austin St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.023862274295606, "lng": -97.05094408697745},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Going Coastal (L, M. Bracht Building)",
+        "streetAddress": "103 S Austin St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.023327445210214, "lng": -97.05086634157348},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "The Strand (Ibis Mural)",
+        "streetAddress": "1102 E. Wharf St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.02227338267563, "lng": -97.05071816472314},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Moon Over the Water Gallery (Hotels)",
+        "streetAddress": "302 S Ausin St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.02185707664091, "lng": -97.0508502904934},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Coastal Merchantile (Sorenson-Stair Marker)",
+        "streetAddress": "406 S Austin Street",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.02105540689565, "lng": -97.05117878145498},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Rockport Barber Shop (Cool Coastal Camp)",
+        "streetAddress": "514 S. Austin St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.020318467964145, "lng": -97.05155506366404},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Pik Nik (Kline Building)",
+        "streetAddress": "1005 E. St Mary's St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.020672069647173, "lng": -97.05234891029116},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Mural at A. L. Bracht Building",
+        "streetAddress": "301 S. Austin St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.022114445593523, "lng": -97.05133737163285},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Mural of Art Colony",
+        "streetAddress": "201 S. Austin St",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 29.568035184200536, "lng": -97.96418438009569},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
+    },
+    {
+        "locationName": "Rockport Railroad Museum",
+        "streetAddress": "105 S. Magnolia Street",
+        "City": "Rockport",
+        "State": "TX",
+        "zipCode": 78382,
+        "Phone": null,
+        "coords": {"lat": 28.023566266269412, "lng": -97.05180039550214},
+        "markerIcon": "http://localhost/hatman/wp-content/uploads/2025/01/icons-02.png"
     }
+   
 ]
