@@ -158,8 +158,10 @@ function fetchBusinessData() {
         let city = position.City;
         let state = position.State;
         let zipCode = position.zipCode;
-        let phone = position.Phone;
+        let phone = position.Phone || null;
         let markerIcon = position.markerIcon;
+        let markerType = position.markerType;
+        let shortDescrip = position.tooltip || null;
     
         let marker = new google.maps.Marker({
             position: coords,
@@ -174,26 +176,28 @@ function fetchBusinessData() {
         const infoBubble = new InfoBubble({
             map: map,
             content: `
-                <div style="
-                    font-family: 'Georgia', serif;
-                    font-size: 14px;
-                    color: #5c4033; 
-                    background-color: #f5e7c5; 
-                    padding: 10px; 
-                    max-width: 200px; 
-                    text-align: left;
-                ">
-                    <strong style="font-size: 16px;">${locName}</strong><br>
-                    <div style="margin-top: 5px; display: flex; align-items: flex-start;">
-                        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Address Icon" style="width: 14px; height: 14px; margin-right: 8px;">
-                        <span>${street}, ${city}, ${state} ${zipCode}</span>
-                    </div>
-                    <div style="margin-top: 5px; display: flex; align-items: flex-start;">
-                        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon" style="width: 14px; height: 14px; margin-right: 8px;">
-                        <span>${phone}</span>
-                    </div>
-                </div>
-            `,
+    <div style="
+        font-family: 'Georgia', serif;
+        font-size: 14px;
+        color: #5c4033; 
+        background-color: #f5e7c5; 
+        padding: 10px; 
+        max-width: 200px; 
+        text-align: left;
+    ">
+        <strong style="font-size: 16px;">${locName}</strong><br>
+        <div style="margin-top: 5px; display: flex; align-items: flex-start;">
+            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Address Icon" style="width: 14px; height: 14px; margin-right: 8px;">
+            <span>${street}, ${city}, ${state} ${zipCode}</span>
+        </div>
+        ${phone ? `
+        <div style="margin-top: 5px; display: flex; align-items: flex-start;">
+            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon" style="width: 14px; height: 14px; margin-right: 8px;">
+            <span>${phone}</span>
+        </div>` : ''}
+    </div>
+`,
+
             position: marker.getPosition(),
             shadowStyle: 1,
             padding: 0,
@@ -208,6 +212,58 @@ function fetchBusinessData() {
             arrowPosition: 50,
             arrowStyle: 2
         });
+
+
+        //Tooltip
+        const tooltip = new google.maps.OverlayView();
+        tooltip.onAdd = function(){
+          const div = document.createElement("div");
+          div.className = "custom-tooltip";
+          div.style.position = "absolute";
+          div.style.display = "none";
+          if (markerType === "historic") {
+            div.innerHTML = `<b>${locName}</b> <br> ${shortDescrip}`;
+          }else{
+            div.innerText = `${locName}`;
+          }
+          
+          this.div = div;
+
+          const panes = this.getPanes();
+          panes.floatPane.appendChild(div);
+        }
+        tooltip.draw = function () {
+          if (!this.div) return;
+
+          const position = this.getProjection().fromLatLngToDivPixel(
+            marker.getPosition()
+          );
+          const div = this.div;
+
+          div.style.left = position.x - 5 + "px";
+          div.style.top = position.y - 35 + "px";
+          
+          //different colors for each tooltip
+          if (markerType==="green") {
+            div.style.backgroundColor = "rgba(106, 214, 133, 0.8)";
+            div.style.borderColor = "rgba(106, 214, 133, 0.8)";
+          }else if(markerType === "yellow"){
+            div.style.backgroundColor = "rgba(214, 212, 106, 0.8)";
+            div.style.borderColor = "rgba(214, 212, 106, 0.8)";
+          }else{
+            div.style.backgroundColor = "rgba(210, 180, 140, 0.8)";
+            div.style.borderColor = "rgba(210, 180, 140, 0.8)";
+          }
+        };
+
+        tooltip.onRemove = function () {
+          if (this.div) {
+            this.div.parentNode.removeChild(this.div);
+            this.div = null;
+          }
+        };
+
+        tooltip.setMap(map);
     
         // Open the InfoBubble when the marker is clicked
         marker.addListener("click", () => {
@@ -233,6 +289,8 @@ function fetchBusinessData() {
                 scaledSize: new google.maps.Size(35, 35), // Enlarged size
             });
             marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1); // Bring to front
+
+            tooltip.div.style.display = "block";
         });
     
         // Restore marker size on mouseout
@@ -242,6 +300,7 @@ function fetchBusinessData() {
                 scaledSize: new google.maps.Size(30, 30), // Original size
             });
             marker.setZIndex(google.maps.Marker.MAX_ZINDEX - 1); // Reset z-index
+            tooltip.div.style.display = "none";
         });
     
         // Close InfoBubble when clicking on the map (optional)

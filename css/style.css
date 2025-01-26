@@ -1,0 +1,15 @@
+.custom-tooltip {
+    position: absolute;
+    padding: 5px 10px; 
+    border-radius: 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    font-family: 'Georgia', serif;
+    max-width: 150px; /* Set a maximum width for the tooltip */
+    white-space: normal; /* Allow text wrapping */
+    word-wrap: break-word; /* Break long words if needed */
+    transform: translate(-50%, -120%); /* Center horizontally and offset above marker */
+    pointer-events: none; /* Disable mouse interaction with tooltip */
+    text-align: center; /* Center text inside the tooltip */
+    color: white;
+}
