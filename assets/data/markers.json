@@ -210,7 +210,7 @@
         "State": "TX",
         "zipCode": 78382,
         "Phone": null,
-        "coords": {"lat": 28.026315464913964, "lng": -97.04875929924575},
+        "coords": {"lat": 28.026240291322402, "lng": -97.04877405139547},
         "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/icons-02.png",
         "markerType": "yellow"
     },
@@ -331,7 +331,7 @@
         "State": "TX",
         "zipCode": 78382,
         "Phone": null,
-        "coords": {"lat": 29.568035184200536, "lng": -97.96418438009569},
+        "coords": {"lat": 28.022700929775596, "lng": -97.05067435277792},
         "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/icons-02.png",
         "markerType": "yellow"
     },
@@ -649,7 +649,7 @@
         "State": "Texas",
         "zipCode": 78382,
         "Phone": null,
-        "coords": {"lat": 29.965682045965114, "lng": -95.4820701575402},
+        "coords": {"lat": 28.024228327362906, "lng": -97.05008834107767},
         "markerIcon": "https://rockportculturalartsdistrict.com/wp-content/uploads/icons-03.png",
         "tooltip": "Formed in 1963, Lamar's firefighters protect life and property, supported by community donations.",
         "markerType": "historic"
