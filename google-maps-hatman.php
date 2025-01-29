@@ -60,13 +60,13 @@
 
 
 // Function to display the map container
-function my_plugin_map_shortcode()
+function my_plugin_map_shortcode($atts)
 {
-    // Enqueue scripts and styles
-    my_plugin_enqueue_scripts();
+    $atts = shortcode_atts(array(
+        'zoom' => '12', // Default zoom level
+    ), $atts, 'google_map');
 
-    // Output the map container
-    return '<div id="map-container" style="width: 100%; height: 710px;"></div>';
+    return '<div id="map-container" style="width: 100%; height: 710px;" data-zoom="' . esc_attr($atts['zoom']) . '"></div>';
 }
 
 function enqueueStyle()

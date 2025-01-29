@@ -1,13 +1,26 @@
 let map;
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.mapInitialized) { // Prevents multiple calls
+      window.mapInitialized = true;
+
+      let zoomValue = parseInt(document.getElementById("map-container")?.getAttribute("data-zoom"), 10) || 12;
+      console.log("Initializing Map with Zoom:", zoomValue);
+
+      initMap(zoomValue);
+  }
+});
+
 
 // initMap is now async
-async function initMap() {
+async function initMap(zoom) {
   // Request libraries when needed, not in the script tag.
+  zoom = parseInt(zoom, 10) || 12; // Ensure zoom is a valid number or default to 12
+    console.log("Zoom Level:", zoom); // Debugging
   const { Map } = await google.maps.importLibrary("maps");
   // Short namespaces can be used.
   map = new Map(document.getElementById("map-container"), {
     center: { lat: 28.382937720915596, lng: -96.75996229365255 },
-    zoom: 7,
+    zoom: zoom,
     featureType: "landscape.natural.terrain",
     elementType: "geometry",
     styles: [
@@ -318,5 +331,4 @@ function fetchBusinessData() {
   
 }
 
-// Initialize the map on window load
-window.onload = initMap;
+
