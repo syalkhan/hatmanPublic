@@ -63,10 +63,15 @@
 function my_plugin_map_shortcode($atts)
 {
     $atts = shortcode_atts(array(
-        'zoom' => '12', // Default zoom level
+        'zoom' => '7', // Default zoom level
+        'lat'  => '28.3829', // Default latitude
+        'lng'  => '-96.7599' // Default longitude
     ), $atts, 'google_map');
 
-    return '<div id="map-container" style="width: 100%; height: 710px;" data-zoom="' . esc_attr($atts['zoom']) . '"></div>';
+    return '<div id="map-container" style="width: 100%; height: 710px;" 
+    data-zoom="' . esc_attr($atts['zoom']) . '" 
+    data-lat="' . esc_attr($atts['lat']) . '" 
+    data-lng="' . esc_attr($atts['lng']) . '"></div>';
 }
 
 function enqueueStyle()

@@ -3,23 +3,38 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!window.mapInitialized) { // Prevents multiple calls
       window.mapInitialized = true;
 
-      let zoomValue = parseInt(document.getElementById("map-container")?.getAttribute("data-zoom"), 10) || 12;
-      console.log("Initializing Map with Zoom:", zoomValue);
+      // Get the map container element
+      const mapContainer = document.getElementById("map-container");
 
-      initMap(zoomValue);
+      if (mapContainer) {
+          // Extract lat, lng, and zoom from data attributes
+          let zoomValue = parseInt(mapContainer.getAttribute("data-zoom"), 10) || 12;
+          let latValue = parseFloat(mapContainer.getAttribute("data-lat")) || 28.382937720915596;
+          let lngValue = parseFloat(mapContainer.getAttribute("data-lng")) || -96.75996229365255;
+
+          console.log("Initializing Map with Zoom:", zoomValue, "Lat:", latValue, "Lng:", lngValue);
+
+          // Pass extracted values to initMap
+          initMap(zoomValue, latValue, lngValue);
+      }
   }
 });
 
 
+
 // initMap is now async
-async function initMap(zoom) {
-  // Request libraries when needed, not in the script tag.
-  zoom = parseInt(zoom, 10) || 12; // Ensure zoom is a valid number or default to 12
-    console.log("Zoom Level:", zoom); // Debugging
+async function initMap(zoom, lat, lng) {
+  // Ensure zoom, lat, and lng are valid numbers with default values
+  zoom = parseInt(zoom, 10) || 7;
+  lat = parseFloat(lat) || 28.382937720915596;
+  lng = parseFloat(lng) || -96.75996229365255;
+
+  // Import Google Maps dynamically
   const { Map } = await google.maps.importLibrary("maps");
-  // Short namespaces can be used.
+
+  // Initialize the Google Map
   map = new Map(document.getElementById("map-container"), {
-    center: { lat: 28.382937720915596, lng: -96.75996229365255 },
+    center: { lat: lat, lng: lng },
     zoom: zoom,
     featureType: "landscape.natural.terrain",
     elementType: "geometry",
