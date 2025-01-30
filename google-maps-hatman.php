@@ -60,15 +60,19 @@
 
 
 // Function to display the map container
-function my_plugin_map_shortcode($atts)
-{
+function my_plugin_map_shortcode($atts) {
+    static $map_counter = 0; // Counter to generate unique IDs
+    $map_counter++; // Increment counter
+
     $atts = shortcode_atts(array(
         'zoom' => '7', // Default zoom level
         'lat'  => '28.3829', // Default latitude
         'lng'  => '-96.7599' // Default longitude
     ), $atts, 'google_map');
 
-    return '<div id="map-container" style="width: 100%; height: 710px;" 
+    $map_id = 'map-container-' . $map_counter; // Unique ID for each map
+
+    return '<div id="' . esc_attr($map_id) . '" style="width: 100%; height: 710px;" 
     data-zoom="' . esc_attr($atts['zoom']) . '" 
     data-lat="' . esc_attr($atts['lat']) . '" 
     data-lng="' . esc_attr($atts['lng']) . '"></div>';

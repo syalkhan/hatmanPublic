@@ -1,29 +1,30 @@
-let map;
 document.addEventListener("DOMContentLoaded", function () {
-  if (!window.mapInitialized) { // Prevents multiple calls
-      window.mapInitialized = true;
-
-      // Get the map container element
-      const mapContainer = document.getElementById("map-container");
-
-      if (mapContainer) {
-          // Extract lat, lng, and zoom from data attributes
-          let zoomValue = parseInt(mapContainer.getAttribute("data-zoom"), 10) || 12;
-          let latValue = parseFloat(mapContainer.getAttribute("data-lat")) || 28.382937720915596;
-          let lngValue = parseFloat(mapContainer.getAttribute("data-lng")) || -96.75996229365255;
-
-          console.log("Initializing Map with Zoom:", zoomValue, "Lat:", latValue, "Lng:", lngValue);
-
-          // Pass extracted values to initMap
-          initMap(zoomValue, latValue, lngValue);
-      }
+  if (!window.mapInstances) {
+      window.mapInstances = []; // Store multiple maps
   }
+
+  // Get all map container elements
+  const mapContainers = document.querySelectorAll("[id^='map-container']");
+
+  mapContainers.forEach((mapContainer, index) => {
+      if (!mapContainer) return;
+
+      // Extract lat, lng, and zoom from data attributes
+      let zoomValue = parseInt(mapContainer.getAttribute("data-zoom"), 10) || 12;
+      let latValue = parseFloat(mapContainer.getAttribute("data-lat")) || 28.382937720915596;
+      let lngValue = parseFloat(mapContainer.getAttribute("data-lng")) || -96.75996229365255;
+
+      console.log(`Initializing Map ${index + 1}: Zoom ${zoomValue}, Lat ${latValue}, Lng ${lngValue}`);
+
+      // Pass extracted values to initMap
+      initMap(mapContainer.id, zoomValue, latValue, lngValue);
+  });
 });
 
 
 
 // initMap is now async
-async function initMap(zoom, lat, lng) {
+async function initMap(mapId, zoom, lat, lng) {
   // Ensure zoom, lat, and lng are valid numbers with default values
   zoom = parseInt(zoom, 10) || 7;
   lat = parseFloat(lat) || 28.382937720915596;
@@ -33,7 +34,7 @@ async function initMap(zoom, lat, lng) {
   const { Map } = await google.maps.importLibrary("maps");
 
   // Initialize the Google Map
-  map = new Map(document.getElementById("map-container"), {
+ const map = new Map(document.getElementById(mapId), {
     center: { lat: lat, lng: lng },
     zoom: zoom,
     featureType: "landscape.natural.terrain",
@@ -163,13 +164,13 @@ async function initMap(zoom, lat, lng) {
   });
 
   // Fetch data and add markers
-  fetchBusinessData();
+  fetchBusinessData(map);
 }
 
 
 let currentlyOpenInfoBubble = null; // Keep track of the open InfoBubble
 
-function fetchBusinessData() {
+function fetchBusinessData(map) {
 
   fetch(mapData.jsonUrl)
     .then(response => {
